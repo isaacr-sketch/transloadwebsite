@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eastern Drayage — Transloading Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #2a3347; --navy-dark: #1c2436; --navy-mid: #323d52;
+    --orange: #f5a623; --orange-bright: #ffb740;
+    --green: #2e7d5e; --green-bright: #3a9970;
+    --white: #ffffff; --off-white: #e8ecf0;
+    --gray: #8c98a8; --text-light: #c5cdd8;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Barlow', sans-serif; background: var(--navy-dark); color: var(--white); overflow-x: hidden; }
+
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+    padding: 80px 0 80px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(26,32,46,0.97) 40%, rgba(26,32,46,0.75) 100%),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px),
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px);
+    background-color: #1c2436;
+  }
+  .hero-stripe {
+    position: absolute; top: 0; right: 0;
+    width: 48%; height: 100%;
+    background: linear-gradient(180deg, rgba(245,166,35,0.07) 0%, rgba(46,125,94,0.05) 100%);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    pointer-events: none;
+  }
+  .hero-accent-bar {
+    position: absolute; left: 0; top: 0;
+    width: 5px; height: 100%;
+    background: linear-gradient(180deg, var(--orange) 0%, var(--green) 100%);
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; padding: 0 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    animation: fadeIn 0.6s 0.1s both;
+  }
+  .hero-eyebrow-line { width: 40px; height: 3px; background: var(--orange); }
+  .hero-eyebrow span {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange);
+  }
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+    font-size: clamp(52px, 6vw, 88px); line-height: 0.92;
+    letter-spacing: -1px; text-transform: uppercase; margin-bottom: 28px;
+    animation: fadeUp 0.7s 0.2s both;
+  }
+  .hero-title .line-accent { color: var(--orange); }
+  .hero-title .line-green { color: var(--green-bright); }
+  .hero-desc {
+    font-size: 17px; line-height: 1.7; color: var(--text-light);
+    max-width: 480px; margin-bottom: 44px; font-weight: 300;
+    animation: fadeUp 0.7s 0.35s both;
+  }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.7s 0.5s both; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--orange); color: var(--navy-dark);
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 16px 42px 16px 32px; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+  }
+  .btn-primary:hover { background: var(--orange-bright); transform: translateX(3px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 2px solid rgba(255,255,255,0.25); color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 14px 28px; text-decoration: none; transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* Stats */
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; animation: fadeUp 0.8s 0.4s both; }
+  .stat-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    padding: 28px 24px; position: relative; overflow: hidden; transition: border-color 0.3s, background 0.3s;
+  }
+  .stat-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%; background: var(--orange);
+    transform: scaleY(0); transform-origin: top; transition: transform 0.3s;
+  }
+  .stat-card:hover { border-color: rgba(245,166,35,0.3); background: rgba(245,166,35,0.05); }
+  .stat-card:hover::before { transform: scaleY(1); }
+  .stat-card.green::before { background: var(--green-bright); }
+  .stat-card.green:hover { border-color: rgba(58,153,112,0.3); background: rgba(58,153,112,0.05); }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+    font-size: 48px; line-height: 1; color: var(--orange); margin-bottom: 6px;
+  }
+  .stat-card.green .stat-num { color: var(--green-bright); }
+  .stat-label { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+  .stat-desc { font-size: 13px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .stat-card.featured {
+    grid-column: span 2; display: flex; align-items: center;
+    justify-content: space-between; gap: 24px;
+    background: rgba(245,166,35,0.08); border-color: rgba(245,166,35,0.2);
+  }
+  .stat-card.featured::before { transform: scaleY(1); }
+  .stat-featured-text {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 14px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--off-white);
+  }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:none; } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-accent-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>Eastern Drayage · Specialized Services</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="line-accent">Trans-</span><br>
+        <span>loading</span><br>
+        <span class="line-green">Operations</span>
+      </h1>
+      <p class="hero-desc">
+        We eliminate inefficiencies at every transfer point. Our transloading platform integrates equipment, labor, and workflow to move freight faster, cleaner, and with full accountability across the supply chain.
+      </p>
+      <div class="hero-buttons">
+        <a href="mailto:sales@easterndrayage.com" class="btn-primary">Request a Quote &rarr;</a>
+        <a href="https://easterndrayage.com" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">16+</div>
+        <div class="stat-label">U.S. Markets</div>
+        <div class="stat-desc">Coast-to-coast coverage at major ports and intermodal hubs</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Operations</div>
+        <div class="stat-desc">Round-the-clock monitoring and access control</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Freight Lost</div>
+        <div class="stat-desc">Load integrity is a non-negotiable priority on every move</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Point of Contact</div>
+        <div class="stat-desc">Single account manager overseeing the full scope of operations</div>
+      </div>
+      <div class="stat-card featured">
+        <div>
+          <div class="stat-featured-text">Asset-Based Fleet</div>
+          <div class="stat-desc">Privately owned trucks &amp; chassis — no brokered uncertainty</div>
+        </div>
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="2" y="18" width="32" height="20" rx="2" fill="rgba(245,166,35,0.2)" stroke="#f5a623" stroke-width="1.5"/>
+          <rect x="34" y="24" width="12" height="14" rx="2" fill="rgba(245,166,35,0.15)" stroke="#f5a623" stroke-width="1.5"/>
+          <circle cx="10" cy="40" r="4" fill="rgba(245,166,35,0.3)" stroke="#f5a623" stroke-width="1.5"/>
+          <circle cx="36" cy="40" r="4" fill="rgba(245,166,35,0.3)" stroke="#f5a623" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

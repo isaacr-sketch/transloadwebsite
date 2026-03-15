@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eastern Drayage — Industries &amp; Markets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #2a3347; --navy-dark: #1c2436; --navy-mid: #323d52;
+    --orange: #f5a623; --orange-bright: #ffb740;
+    --green: #2e7d5e; --green-bright: #3a9970;
+    --white: #ffffff; --off-white: #e8ecf0;
+    --gray: #8c98a8; --text-light: #c5cdd8;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Barlow', sans-serif; background: var(--navy-dark); color: var(--white); overflow-x: hidden; }
+
+  .section { padding: 80px 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .section-label::before { content: ''; display: block; width: 32px; height: 3px; background: var(--orange); }
+  .section-label span { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(36px, 4vw, 56px); text-transform: uppercase; line-height: 1; margin-bottom: 48px; }
+
+  /* Use cases */
+  .uc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 80px; }
+  .uc-card {
+    background: var(--navy); border: 1px solid rgba(255,255,255,0.06);
+    padding: 36px; display: flex; gap: 24px; align-items: flex-start;
+    transition: border-color 0.3s;
+  }
+  .uc-card:hover { border-color: rgba(245,166,35,0.3); }
+  .uc-icon-wrap {
+    width: 56px; height: 56px; flex-shrink: 0;
+    background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.2);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .uc-icon-wrap.green-bg { background: rgba(58,153,112,0.1); border-color: rgba(58,153,112,0.2); }
+  .uc-icon-wrap svg { width: 28px; height: 28px; }
+  .uc-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 20px; text-transform: uppercase; color: var(--white); margin-bottom: 10px; letter-spacing: 0.5px; }
+  .uc-desc { font-size: 14px; color: var(--gray); line-height: 1.65; font-weight: 300; }
+  .uc-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .uc-tag { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border: 1px solid rgba(245,166,35,0.3); color: var(--orange); }
+  .uc-tag.green { border-color: rgba(58,153,112,0.3); color: var(--green-bright); }
+
+  /* Locations */
+  .loc-header { display: flex; align-items: center; gap: 40px; margin-bottom: 32px; }
+  .loc-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 32px; text-transform: uppercase; white-space: nowrap; }
+  .loc-title-line { flex: 1; height: 2px; background: linear-gradient(90deg, var(--orange), var(--green), transparent); }
+  .loc-grid { display: flex; gap: 2px; flex-wrap: wrap; }
+  .loc-item {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+    padding: 16px 24px; display: flex; align-items: center; gap: 10px;
+    flex: 1; min-width: 180px; transition: background 0.2s;
+  }
+  .loc-item:hover { background: rgba(245,166,35,0.06); }
+  .loc-dot { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+  .loc-dot.green { background: var(--green-bright); }
+  .loc-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; color: var(--off-white); }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .uc-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+<section class="section">
+  <div class="container">
+
+    <!-- Industries -->
+    <div class="section-label reveal"><span>Industries Served</span></div>
+    <h2 class="section-title reveal" style="transition-delay:0.1s">Who We Transload For</h2>
+    <div class="uc-grid">
+      <div class="uc-card reveal" style="transition-delay:0.1s">
+        <div class="uc-icon-wrap">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="10" width="24" height="14" rx="1" stroke="#f5a623" stroke-width="1.5" fill="rgba(245,166,35,0.1)"/>
+            <path d="M2 16 H26" stroke="#f5a623" stroke-width="1"/>
+            <rect x="6" y="2" width="16" height="8" rx="1" stroke="#f5a623" stroke-width="1" fill="rgba(245,166,35,0.05)"/>
+          </svg>
+        </div>
+        <div>
+          <div class="uc-title">Steel &amp; Industrial Materials</div>
+          <div class="uc-desc">Heavy steel coils, pipe, structural sections, and industrial machinery transferred with specialized equipment and precision handling.</div>
+          <div class="uc-tags">
+            <span class="uc-tag">Steel Coil</span><span class="uc-tag">Pipe &amp; Tube</span><span class="uc-tag">Machinery</span>
+          </div>
+        </div>
+      </div>
+      <div class="uc-card reveal" style="transition-delay:0.15s">
+        <div class="uc-icon-wrap green-bg">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="6" width="24" height="18" rx="1" stroke="#3a9970" stroke-width="1.5" fill="rgba(58,153,112,0.1)"/>
+            <line x1="9" y1="6" x2="9" y2="24" stroke="#3a9970" stroke-width="1" opacity="0.5"/>
+            <line x1="19" y1="6" x2="19" y2="24" stroke="#3a9970" stroke-width="1" opacity="0.5"/>
+            <path d="M2 14 H26" stroke="#3a9970" stroke-width="1" opacity="0.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="uc-title">Retail &amp; Consumer Goods</div>
+          <div class="uc-desc">High-velocity import containers broken down and redistributed to multi-point domestic networks. Optimized for cube and delivery speed.</div>
+          <div class="uc-tags">
+            <span class="uc-tag green">Import Containers</span><span class="uc-tag green">Multi-DC Distribution</span>
+          </div>
+        </div>
+      </div>
+      <div class="uc-card reveal" style="transition-delay:0.2s">
+        <div class="uc-icon-wrap">
+          <svg viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="10" stroke="#f5a623" stroke-width="1.5" fill="rgba(245,166,35,0.08)"/>
+            <path d="M14 6 V14 L20 18" stroke="#f5a623" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="uc-title">Time-Sensitive Cargo</div>
+          <div class="uc-desc">24/7 operations ensure your freight transfers and departs on schedule. No disruption tolerance on JIT supply chains or priority dispatch.</div>
+          <div class="uc-tags">
+            <span class="uc-tag">JIT Supply Chains</span><span class="uc-tag">Priority Dispatch</span>
+          </div>
+        </div>
+      </div>
+      <div class="uc-card reveal" style="transition-delay:0.25s">
+        <div class="uc-icon-wrap green-bg">
+          <svg viewBox="0 0 28 28" fill="none">
+            <path d="M4 22 L4 8 L14 4 L24 8 L24 22 Z" stroke="#3a9970" stroke-width="1.5" fill="rgba(58,153,112,0.08)"/>
+            <rect x="10" y="14" width="8" height="8" rx="1" stroke="#3a9970" stroke-width="1" fill="rgba(58,153,112,0.1)"/>
+            <path d="M4 8 L14 12 L24 8" stroke="#3a9970" stroke-width="1"/>
+          </svg>
+        </div>
+        <div>
+          <div class="uc-title">Project &amp; Out-of-Gauge Freight</div>
+          <div class="uc-desc">Oversized, overweight, or oddly configured cargo handled with bespoke transload planning and multi-phase structured execution.</div>
+          <div class="uc-tags">
+            <span class="uc-tag green">Oversized</span><span class="uc-tag green">Multi-Phase</span><span class="uc-tag green">Out-of-Gauge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Locations -->
+    <div class="loc-header reveal">
+      <div class="loc-title">Transloading Markets</div>
+      <div class="loc-title-line"></div>
+    </div>
+    <div class="loc-grid reveal" style="transition-delay:0.1s">
+      <div class="loc-item"><div class="loc-dot"></div><div class="loc-name">New York / New Jersey</div></div>
+      <div class="loc-item"><div class="loc-dot green"></div><div class="loc-name">Los Angeles / Long Beach</div></div>
+      <div class="loc-item"><div class="loc-dot"></div><div class="loc-name">Houston, TX</div></div>
+      <div class="loc-item"><div class="loc-dot green"></div><div class="loc-name">Savannah, GA</div></div>
+      <div class="loc-item"><div class="loc-dot"></div><div class="loc-name">Jacksonville, FL</div></div>
+      <div class="loc-item"><div class="loc-dot green"></div><div class="loc-name">Kansas City, MO</div></div>
+      <div class="loc-item"><div class="loc-dot"></div><div class="loc-name">Baltimore, MD</div></div>
+      <div class="loc-item"><div class="loc-dot green"></div><div class="loc-name">Charleston, SC</div></div>
+      <div class="loc-item"><div class="loc-dot"></div><div class="loc-name">Chicago, IL</div></div>
+      <div class="loc-item"><div class="loc-dot green"></div><div class="loc-name">Boston, MA</div></div>
+    </div>
+
+  </div>
+</section>
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){ x.target.classList.add('visible'); obs.unobserve(x.target); } }), { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

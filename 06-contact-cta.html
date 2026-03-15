@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eastern Drayage — Contact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #2a3347; --navy-dark: #1c2436; --navy-mid: #323d52;
+    --orange: #f5a623; --orange-bright: #ffb740;
+    --green: #2e7d5e; --green-bright: #3a9970;
+    --white: #ffffff; --off-white: #e8ecf0;
+    --gray: #8c98a8; --text-light: #c5cdd8;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Barlow', sans-serif; background: var(--navy-dark); color: var(--white); overflow-x: hidden; }
+
+  .cta {
+    padding: 100px 0;
+    position: relative; overflow: hidden;
+  }
+  .cta::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(245,166,35,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    position: relative; z-index: 1;
+    text-align: center; max-width: 720px;
+    margin: 0 auto; padding: 0 48px;
+  }
+
+  .section-label { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+  .section-label::before { content: ''; display: block; width: 32px; height: 3px; background: var(--orange); }
+  .section-label span { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); }
+
+  .cta-title {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+    font-size: clamp(44px, 5vw, 72px); text-transform: uppercase;
+    line-height: 0.95; margin-bottom: 24px; letter-spacing: -1px;
+  }
+  .cta-title span { color: var(--orange); }
+  .cta-sub { font-size: 17px; color: var(--text-light); font-weight: 300; line-height: 1.6; margin-bottom: 48px; }
+
+  .cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--orange); color: var(--navy-dark);
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 16px 42px 16px 32px; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+  }
+  .btn-primary:hover { background: var(--orange-bright); transform: translateX(3px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center;
+    border: 2px solid rgba(255,255,255,0.25); color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 14px 28px; text-decoration: none; transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* Info row */
+  .info-row {
+    display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .info-item {
+    flex: 1; min-width: 220px;
+    padding: 28px 24px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    text-align: left;
+  }
+  .info-item:last-child { border-right: none; }
+  .info-label {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 8px;
+  }
+  .info-value { font-size: 15px; color: var(--text-light); font-weight: 400; }
+  .info-value a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+  .info-value a:hover { color: var(--orange); }
+
+  /* Divider bar */
+  .divider { height: 4px; background: linear-gradient(90deg, var(--orange) 0%, var(--green) 40%, transparent 100%); margin-bottom: 60px; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 700px) {
+    .cta-inner { padding: 0 24px; }
+    .info-row { flex-direction: column; }
+    .info-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .info-item:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+<div class="divider"></div>
+<section class="cta">
+  <div class="cta-inner">
+    <div class="section-label reveal"><span>Ready to Move?</span></div>
+    <h2 class="cta-title reveal" style="transition-delay:0.1s">
+      Let's Build Your<br><span>Transloading</span><br>Solution
+    </h2>
+    <p class="cta-sub reveal" style="transition-delay:0.2s">
+      Tell us about your freight. Our team will design a transloading strategy that eliminates inefficiencies, protects your cargo, and keeps your supply chain moving.
+    </p>
+    <div class="cta-actions reveal" style="transition-delay:0.3s">
+      <a href="mailto:sales@easterndrayage.com" class="btn-primary">Email Sales Team &rarr;</a>
+      <a href="tel:9734123030" class="btn-secondary">Call 973-412-3030</a>
+    </div>
+    <div class="info-row reveal" style="transition-delay:0.4s">
+      <div class="info-item">
+        <div class="info-label">Headquarters</div>
+        <div class="info-value">123 Pennsylvania Ave<br>Kearny, NJ 07032</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Sales</div>
+        <div class="info-value"><a href="mailto:sales@easterndrayage.com">sales@easterndrayage.com</a></div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Vendors</div>
+        <div class="info-value"><a href="mailto:vendors@easterndrayage.com">vendors@easterndrayage.com</a></div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Phone</div>
+        <div class="info-value"><a href="tel:9734123030">973-412-3030</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){ x.target.classList.add('visible'); obs.unobserve(x.target); } }), { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

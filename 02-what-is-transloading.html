@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eastern Drayage — What Is Transloading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #2a3347; --navy-dark: #1c2436; --navy-mid: #323d52;
+    --orange: #f5a623; --orange-bright: #ffb740;
+    --green: #2e7d5e; --green-bright: #3a9970;
+    --white: #ffffff; --off-white: #e8ecf0;
+    --gray: #8c98a8; --text-light: #c5cdd8;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Barlow', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+
+  .section { padding: 80px 0; position: relative; overflow: hidden; }
+  .section::after {
+    content: 'TRANSLOADING';
+    position: absolute; right: -40px; top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+    font-size: 120px; color: rgba(255,255,255,0.02);
+    letter-spacing: 10px; pointer-events: none; white-space: nowrap;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .section-label::before { content: ''; display: block; width: 32px; height: 3px; background: var(--orange); }
+  .section-label span {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange);
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+    font-size: clamp(36px, 4vw, 56px); text-transform: uppercase; line-height: 1; margin-bottom: 24px;
+  }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+  .what-text p { font-size: 16px; line-height: 1.75; color: var(--text-light); margin-bottom: 16px; font-weight: 300; }
+  .what-text p strong { color: var(--white); font-weight: 600; }
+
+  /* Process flow */
+  .process-flow { display: flex; flex-direction: column; }
+  .process-step { display: flex; gap: 20px; align-items: stretch; }
+  .process-step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+  .process-num {
+    width: 48px; height: 48px; background: var(--orange); color: var(--navy-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 20px; flex-shrink: 0;
+  }
+  .process-num.green { background: var(--green-bright); }
+  .process-connector { width: 2px; background: rgba(255,255,255,0.1); flex: 1; min-height: 32px; margin: 0 auto; }
+  .process-step:last-child .process-connector { display: none; }
+  .process-content { padding: 4px 0 32px; }
+  .process-title {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 18px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--white); margin-bottom: 4px;
+  }
+  .process-desc { font-size: 14px; color: var(--gray); line-height: 1.5; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; gap: 48px; }
+    .container { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+<section class="section">
+  <div class="container">
+    <div class="grid">
+      <div class="what-text reveal">
+        <div class="section-label"><span>Definition</span></div>
+        <h2 class="section-title">What Is<br>Transloading?</h2>
+        <p>Transloading is the process of transferring cargo from one mode of transportation to another — whether container-to-truck, rail-to-truck, or vessel-to-warehouse — without routing freight to a final destination first.</p>
+        <p>It's a critical strategy for importers and exporters managing <strong>port congestion, cost optimization, and inland distribution</strong>. Done right, transloading cuts dwell time, reduces detention fees, and unlocks faster last-mile delivery.</p>
+        <p>Eastern Drayage has built its transloading platform around one principle: <strong>every transfer should add speed, not friction</strong>. Our facilities, equipment, and teams are purpose-built for this exact workflow.</p>
+      </div>
+      <div class="reveal" style="transition-delay:0.15s">
+        <div class="process-flow">
+          <div class="process-step">
+            <div class="process-step-left">
+              <div class="process-num">01</div>
+              <div class="process-connector"></div>
+            </div>
+            <div class="process-content">
+              <div class="process-title">Container Arrives at Port or Rail</div>
+              <div class="process-desc">Inbound container is received from vessel or intermodal rail at our managed facility.</div>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-step-left">
+              <div class="process-num green">02</div>
+              <div class="process-connector"></div>
+            </div>
+            <div class="process-content">
+              <div class="process-title">Cargo Unloaded &amp; Inspected</div>
+              <div class="process-desc">Contents are carefully unloaded, verified against manifest, and staged in our secure yard.</div>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-step-left">
+              <div class="process-num">03</div>
+              <div class="process-connector"></div>
+            </div>
+            <div class="process-content">
+              <div class="process-title">Load Configuration Optimized</div>
+              <div class="process-desc">Cargo is consolidated or separated for outbound transport — maximizing cube and minimizing moves.</div>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-step-left">
+              <div class="process-num green">04</div>
+              <div class="process-connector"></div>
+            </div>
+            <div class="process-content">
+              <div class="process-title">Outbound Dispatch</div>
+              <div class="process-desc">Freight departs on Eastern's asset-based fleet to its final inland destination — tracked every mile.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){ x.target.classList.add('visible'); obs.unobserve(x.target); } }), { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
