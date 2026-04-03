@@ -1,0 +1,197 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Charlotte, NC — Target Accounts | Eastern Drayage</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 11px;
+      color: #1a1a1a;
+      background: #fff;
+      padding: 30px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 3px solid #1B3A6B;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .header-left h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1B3A6B;
+    }
+    .header-left h2 {
+      font-size: 12px;
+      font-weight: 400;
+      color: #555;
+    }
+    .section-title {
+      background: #1B3A6B;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      margin-top: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+    thead th {
+      text-align: left;
+      padding: 8px;
+      background: #E8EDF5;
+      color: #1B3A6B;
+      border-bottom: 1px solid #c5cfe0;
+      font-size: 9px;
+    }
+    td {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    .owner-tag {
+      font-weight: bold;
+      color: #d35400;
+      font-size: 9px;
+    }
+    .contact-info {
+      font-size: 10px;
+      color: #7a4a00;
+      line-height: 1.4;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 9px;
+      color: #999;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>Eastern Drayage | Asset-Based Port Solutions</h1>
+      <h2>CCO Strategy Brief: Charlotte, NC Visit (April 2026)</h2>
+    </div>
+    <div class="header-right" style="text-align: right;">
+      <strong>Asset Count: 400+ Power Units</strong><br>
+      <strong>Private Chassis: 1,100 Units</strong>
+    </div>
+  </div>
+
+  <div class="section-title">Retail & E-Commerce</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">Company</th>
+        <th style="width: 10%;">Strategy Owner</th>
+        <th style="width: 30%;">Primary Contacts</th>
+        <th>Value Add / Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Lowe's</strong><br><small>Mooresville, NC</small></td>
+        <td class="owner-tag">KONRAD</td>
+        <td class="contact-info">
+          <strong>Anthony Bowman</strong> (Intl. Trans)<br>704-437-3214<br>
+          <strong>Garrett Breisinger</strong> (Sr. Dir. Logistics)<br>412-418-4412
+        </td>
+        <td>Major Asia importer. Utilize our private chassis pool to bypass port equipment imbalances at CHS.</td>
+      </tr>
+      <tr>
+        <td><strong>Amazon</strong><br><small>Charlotte FCs</small></td>
+        <td class="owner-tag">HARRY1</td>
+        <td class="contact-info">
+          <strong>JaQuan Bullock</strong> (Ops): 704-993-0876<br>
+          <strong>Nicholas Riha</strong> (Supply Chain): 602-558-4893<br>
+          <strong>Deborah Andrus</strong> (Ops): 910-986-5106
+        </td>
+        <td>High-frequency drayage from CHS/ILM to local fulfillment centers. Compliance with strict delivery windows.</td>
+      </tr>
+      <tr>
+        <td><strong>Belk</strong><br><small>Charlotte, NC</small></td>
+        <td>--</td>
+        <td class="contact-info">VP Supply Chain / Director Import Logistics</td>
+        <td>Department store chain with heavy seasonal Asia volume. Offer peak-season surge capacity.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">Manufacturing & Specialized Chemicals</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">Company</th>
+        <th style="width: 10%;">Strategy Owner</th>
+        <th style="width: 30%;">Primary Contacts</th>
+        <th>Value Add / Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Honeywell</strong><br><small>Charlotte HQ</small></td>
+        <td class="owner-tag">KONRAD</td>
+        <td class="contact-info"><strong>Biju George</strong> (Sr. Logistics Manager)</td>
+        <td>Diversified industrial needs. Value-add: Just-in-time delivery of raw materials for production.</td>
+      </tr>
+      <tr>
+        <td><strong>Nucor Steel</strong><br><small>Charlotte HQ</small></td>
+        <td>--</td>
+        <td class="contact-info">Director of Raw Materials Logistics</td>
+        <td>Heavy-gauge industrial loads. Pitch our "Steel and Pipe" precision hauling capabilities.</td>
+      </tr>
+      <tr>
+        <td><strong>Albemarle Corp</strong><br><small>Charlotte, NC</small></td>
+        <td>--</td>
+        <td class="contact-info">Global Logistics Director</td>
+        <td>Lithium/Chemical leader. "Safety-first" specialized handling protocols are critical here.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">Logistics & 3PL Partners</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">Company</th>
+        <th style="width: 10%;">Strategy Owner</th>
+        <th style="width: 30%;">Primary Contacts</th>
+        <th>Value Add / Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Geodis</strong><br><small>Charlotte Hub</small></td>
+        <td class="owner-tag">TROY</td>
+        <td class="contact-info">Director of Operations</td>
+        <td>Support for their contract logistics clients. Offer asset-based reliability vs. brokered power.</td>
+      </tr>
+      <tr>
+        <td><strong>C.H. Robinson</strong></td>
+        <td>--</td>
+        <td class="contact-info">Regional Carrier Sales Manager</td>
+        <td>Approved carrier relationship to unlock volume across their deep Charlotte shipper base.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <div><strong>Eastern Drayage Internal Use Only</strong> | Port Focus: CHS, SAV, ORF, NY/NJ | 1,100 Private Chassis Available</div>
+    <div style="margin-top: 5px;">*Contact owners (Konrad/Harry1) should be notified of any high-level engagement.</div>
+  </div>
+
+</body>
+</html>
